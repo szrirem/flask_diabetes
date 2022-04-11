@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API FT</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>DİYABET DURUMU TAHMİN ÇALIŞMASI</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+        <input type="text" name="Hamilelik Sayısı" placeholder="Hamilelik Sayısı" required="required" />
+        <input type="text" name="Glikoz Seviyesi" placeholder="Glikoz Seviyesi" required="required" />
+		<input type="text" name="Kan Basıncı" placeholder="Kan Basıncı" required="required" />
+		<input type="text" name="Cilt Kalınlığı" placeholder="Cilt Kalınlığı" required="required" />
+        <input type="text" name="İnsülin Seviyesi" placeholder="İnsülin Seviyesi" required="required" />
+        <input type="text" name="Vücut Kütlesi" placeholder="Vücut Kütlesi" required="required" />
+        <input type="text" name="Diyabete Yatkınlık Fonsiyonu" placeholder="Diyabete Yatkınlık Fonksiyonu" required="required" />
+        <input type="text" name="Yaş" placeholder="Yaş" required="required" />
+		
+
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Tahmin Et</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}<br>
+   {{ probability }}<br>
+
+ </div>
+
+
+</body>
+</html>
